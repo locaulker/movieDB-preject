@@ -6,7 +6,7 @@ export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [loading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState({ show: false, msg: '' })
   const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('batman')
@@ -21,7 +21,7 @@ const AppProvider = ({ children }) => {
         setMovies(data.Search)
         setError({ show: false, msg: '' })
       } else {
-        setError({ show: false, msg: data.Error })
+        setError({ show: true, msg: data.Error })
       }
       setIsLoading(false)
     } catch (error) {
@@ -34,7 +34,7 @@ const AppProvider = ({ children }) => {
   }, [query])
 
   return (
-    <AppContext.Provider value={{ loading, error, movies, query, setQuery }}>
+    <AppContext.Provider value={{ isLoading, error, movies, query, setQuery }}>
       {children}
     </AppContext.Provider>
   )

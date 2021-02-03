@@ -13,6 +13,7 @@ const SearchForm = () => {
         value={query}
         onChange={e => setQuery(e.target.value)}
       />
+      {error.show && <div className='error'>{error.msg}</div>}
     </form>
   )
 }
