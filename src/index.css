@@ -264,7 +264,7 @@ Single Movie
 }
 .btn {
   text-transform: capitalize;
-  padding: 0.25rem 0.5rem;
+  padding: 0.55rem 0.8rem;
   background: var(--clr-primary-5);
   color: var(--clr-white);
   border-radius: var(--radius);
